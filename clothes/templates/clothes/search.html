@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/clothes1.css' %}">
+        <title>Weather and Clothes</title>
+    </head>
+    <body>
+        <form action='/search/' method='POST'>{% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <input type='submit' value='表示' />
+        </form>
+    </body>
+</html>

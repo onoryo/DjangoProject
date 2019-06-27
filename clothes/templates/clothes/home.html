@@ -1,0 +1,119 @@
+{% load staticfiles %}
+<html>
+  
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/clothes5.css' %}">
+        <title>Weather and Clothes</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <!--各ボックスを確認するためのスタイル-->
+        <!--<style type="text/css">-->
+        <!--    /* {-->
+        <!--        outline: 1px solid #ff0000;-->
+        <!--    }-->
+        <!--</style>-->
+    </head>
+
+    <body>
+        <div class="wrap1">
+            <B><font size="12" face="Courier"><center>Weather and Clothes</center></font></B>
+            <br>
+            <!--<div class="kensaku" style="background: #FFFFFF; width:250px; border: 2px dashed #CC0000; height:100％; padding-left:10px; padding-right:10px; padding-top:10px; padding-bottom:10px;">-->
+            <div class="kensaku" style="background: #FFFFFF; float:left; border: 2px dashed #CC0000; height:100％; margin-top:30px; padding-left:10px; padding-right:10px; padding-top:10px; padding-bottom:10px;">
+                <button type="button" onclick="location.href='{% url 'toukou' %}'"style="background-color:peachpuff;width:200px;height:40px;"
+                onmouseover="this.style.background='lightskyblue'" onmouseout="this.style.background='peachpuff'">
+                <B><font size="3">服の写真を投稿する</font></B></button><BR><BR>
+                <form method='post', enctype="multipart/form-data">{% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                    <button type='submit'>表示</button> 
+                </form>
+            </div>
+    
+            <div class="weather1" style="background: #FFFFFF; width:130; border: 2px dashed #CC0000; height:100％; padding-left:10px; padding-right:10px; padding-top:10px; padding-bottom:10px;">
+                <center>今の{{ lo }}<br><!--地域選択-->
+                <img src="{% static daily_images.0 %}" alt="今日の天気画像" width="60"><br>
+                気温：{{ current_temp }}&#08451;<br></center>
+                <!--降水確率：＜＞％-->
+            </div>
+            <br><br>
+      
+            <div class="weaklyweather">
+                <table border=5>
+                    <caption><B>週間天気予報</B></caption>
+                    <thead style="background:#ffccff">
+                        <tr>
+                            <th width="60"><font color="#ffccff" font="" ・・・・・・・・<=""></font></th>
+                            <th width="60">{{ month.1 }}/{{ day.1 }}({{ weekday_char.1 }})</th>
+                            <th width="60">{{ month.2 }}/{{ day.2 }}({{ weekday_char.2 }})</th>
+                            <th width="60">{{ month.3 }}/{{ day.3 }}({{ weekday_char.3 }})</th>
+                            <th width="60">{{ month.4 }}/{{ day.4 }}({{ weekday_char.4 }})</th>
+                            <th width="60">{{ month.5 }}/{{ day.5 }}({{ weekday_char.5 }})</th>
+                            <th width="60">{{ month.6 }}/{{ day.6 }}({{ weekday_char.6 }})</th>
+                        </tr>
+                    </thead>
+                    <tbody style="background:#ffffff">
+                    <tr>
+                        <td width="80"><div style="background: #FFeeFF; text-align:center; width:35px;" >最高気温</div></td>
+                        <td width="60"> <div style="text-align:center">{{ max_temp.1 }}&#08451;<div style="text-align:center"></div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ max_temp.2 }}&#08451;<div style="text-align:center"></div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ max_temp.3 }}&#08451;<div style="text-align:center"></div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ max_temp.4 }}&#08451;<div style="text-align:center"></div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ max_temp.5 }}&#08451;<div style="text-align:center"></div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ max_temp.6 }}&#08451;<div style="text-align:center"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td width="80"><div style="background: #afeeee; text-align:center;">最低気温</div></td>
+                        <td width="60"> <div style="text-align:center">{{ min_temp.1 }}&#08451;<div style="text-align:center"></div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ min_temp.2 }}&#08451;<div style="text-align:center"></div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ min_temp.3 }}&#08451;<div style="text-align:center"></div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ min_temp.4 }}&#08451;<div style="text-align:center"></div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ min_temp.5 }}&#08451;<div style="text-align:center"></div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ min_temp.6 }}&#08451;<div style="text-align:center"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td width="80" height="60" rowspan="2"><div style="text-align:center; background: #ffffe0">天気</div></td>
+                        <td width="60"> <div style="text-align:center">{{ daily_sky.1 }}<div style="text-align:center"> </div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ daily_sky.2 }}<div style="text-align:center"></div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ daily_sky.3 }}<div style="text-align:center"></div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ daily_sky.4 }}<div style="text-align:center"></div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ daily_sky.5 }}<div style="text-align:center"></div></div></td>
+                        <td width="60"> <div style="text-align:center">{{ daily_sky.6 }}<div style="text-align:center"></div></div></td>
+                    </tr>
+                    <tr>
+                        <td width="60"><img src="{% static daily_images.1 %}" alt="1日後の天気画像" width="60"></img></td>
+                        <td width="60"><img src="{% static daily_images.2 %}" alt="2日後の天気画像" width="60"></img></td>
+                        <td width="60"><img src="{% static daily_images.3 %}" alt="3日後の天気画像" width="60"></img></td>
+                        <td width="60"><img src="{% static daily_images.4 %}" alt="4日後の天気画像" width="60"></img></td>
+                        <td width="60"><img src="{% static daily_images.5 %}" alt="5日後の天気画像" width="60"></img></td>
+                        <td width="60"><img src="{% static daily_images.6 %}" alt="6日後の天気画像" width="60"></img></td>
+                    </tr>
+                    </tbody>
+                </table>  
+            </div>
+            <!--　</div>　weaterのdiv-->
+       <!-- </div>    wrap の div-->
+            <br>
+    
+            <div class="today">
+                今日おすすめの服装はこちら
+                <img src="{{ posts.0.image.url }}" alt="本日の適した服装の写真"><br><br>
+                <div style="border-style: solid ; border-width: 1px; border-color: #000000;">
+                    コメント<br>
+                    ＜{{ posts.0.comment }}＞
+                </div>
+            </div>
+            
+            <center>
+                <div class="picture">
+                    <center>
+                        {% for post in posts %}
+                            <img src="{{ post.image.url }}" alt="服の画像" width="200">
+                        {% endfor %}
+                        <!--＜写真１＞＜写真２＞＜写真３＞<img src="" alt="服の画像"width="200">-->
+                    </center><br><br>
+                </div>
+            </center>
+        </div>
+    </body>
+</html>

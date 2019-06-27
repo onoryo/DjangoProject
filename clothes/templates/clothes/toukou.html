@@ -1,0 +1,132 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/clothes5.css' %}">
+        <title>
+        Weather and Clothes　〜写真を投稿〜</title>
+    </head>
+      
+    <body>
+        <center><form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <table>
+            {{ form.as_p }}
+            <tr>
+                <td><button type="submit" >Save</button></td>
+            </tr>
+        </table>
+       
+        <!--    画像ファイル<input type="file" name="pic"><br>-->
+    
+        <!--<div class="wrap2">-->
+        <!--    <input type="radio" name="q1" value="women"> Women-->
+        <!--    <input type="radio" name="q1" value="men"> Men-->
+        <!--<br><br>-->
+            
+        <!--目的<br>-->
+        <!--<select name="目的">-->
+        <!--    <option value="nochoice">指定なし</option>-->
+        <!--    <option value="date">デート</option>-->
+        <!--    <option value="party">パーティー</option>-->
+        <!--    <option value="outdoor">アウトドア</option>-->
+        <!--</select>-->
+        <!--<br><br>-->
+    
+        <!--服のジャンル<br>-->
+        <!--<select name="ジャンル">-->
+        <!--    <option value="outdoor">アウトドア</option>-->
+        <!--    <option value="amekaji">アメカジ</option>-->
+        <!--    <option value="kuranji">クランジ</option>-->
+        <!--    <option value="surf">サーフ</option>-->
+        <!--    <option value="salon">サロン</option>-->
+        <!--    <option value="street">ストリート</option>-->
+        <!--    <option value="sports">スポーツＭＩＸ</option>-->
+        <!--    <option value="toratto">トラット</option>-->
+        <!--    <option value="noomukoa">ノームコア</option>-->
+        <!--    <option value="business">ビジネス</option>-->
+        <!--    <option value="hiphop">ヒップホップ</option>-->
+        <!--    <option value="host">ホスト・渋谷</option>-->
+        <!--    <option value="mode">モード</option>-->
+        <!--    <option value="rock">ロック</option>-->
+        <!--    <option value="onee">お姉</option>-->
+        <!--    <option value="girlish">ガーリッシュ</option>-->
+        <!--    <option value="gyaru">ギャル</option>-->
+        <!--    <option value="kireime">きれいめカジュアル</option>-->
+        <!--    <option value="gosurori">ゴスロリ</option>-->
+        <!--    <option value="marine">マリン</option>-->
+        <!--    <option value="harajuku">原宿</option>-->
+        <!--    <option value="morigirl">森ガール</option>-->
+        <!--</select>-->
+        <!--<br><br>-->
+    
+        <!--行き先<br>-->
+        <!--<select name="ken">-->
+        <!--    <option value="選択してください" >都道府県</option>-->
+        <!--    <option value="北海道">北海道</option>-->
+        <!--    <option value="青森県">青森県</option>-->
+        <!--    <option value="岩手県">岩手県</option>-->
+        <!--    <option value="宮城県">宮城県</option>-->
+        <!--    <option value="秋田県">秋田県</option>-->
+        <!--    <option value="山形県">山形県</option>-->
+        <!--    <option value="福島県">福島県</option>-->
+        <!--    <option value="茨城県">茨城県</option>-->
+        <!--    <option value="栃木県">栃木県</option>-->
+        <!--    <option value="群馬県">群馬県</option>-->
+        <!--    <option value="埼玉県">埼玉県</option>-->
+        <!--    <option value="千葉県">千葉県</option>-->
+        <!--    <option value="東京都">東京都</option>-->
+        <!--    <option value="神奈川県">神奈川県</option>-->
+        <!--    <option value="新潟県">新潟県</option>-->
+        <!--    <option value="富山県">富山県</option>-->
+        <!--    <option value="石川県">石川県</option>-->
+        <!--    <option value="福井県">福井県</option>-->
+        <!--    <option value="山梨県">山梨県</option>-->
+        <!--    <option value="長野県">長野県</option>-->
+        <!--    <option value="岐阜県">岐阜県</option>-->
+        <!--    <option value="静岡県">静岡県</option>-->
+        <!--    <option value="愛知県">愛知県</option>-->
+        <!--    <option value="三重県">三重県</option>-->
+        <!--    <option value="滋賀県">滋賀県</option>-->
+        <!--    <option value="京都府">京都府</option>-->
+        <!--    <option value="大阪府">大阪府</option>-->
+        <!--    <option value="兵庫県">兵庫県</option>-->
+        <!--    <option value="奈良県">奈良県</option>-->
+        <!--    <option value="和歌山県">和歌山県</option>-->
+        <!--    <option value="鳥取県">鳥取県</option>-->
+        <!--    <option value="島根県">島根県</option>-->
+        <!--    <option value="岡山県">岡山県</option>-->
+        <!--    <option value="広島県">広島県</option>-->
+        <!--    <option value="山口県">山口県</option>-->
+        <!--    <option value="徳島県">徳島県</option>-->
+        <!--    <option value="香川県">香川県</option>-->
+        <!--    <option value="愛媛県">愛媛県</option>-->
+        <!--    <option value="高知県">高知県</option>-->
+        <!--    <option value="福岡県">福岡県</option>-->
+        <!--    <option value="佐賀県">佐賀県</option>-->
+        <!--    <option value="長崎県">長崎県</option>-->
+        <!--    <option value="熊本県">熊本県</option>-->
+        <!--    <option value="大分県">大分県</option>-->
+        <!--    <option value="宮崎県">宮崎県</option>-->
+        <!--    <option value="鹿児島県">鹿児島県</option>-->
+        <!--    <option value="沖縄県">沖縄県</option>-->
+        <!--</select></div>-->
+        <!--<br><br>-->
+        
+          
+        <!--気温<BR>-->
+        <!--<select name="気温">-->
+        <!--    <option value="サンプル0">～５℃</option></option>-->
+        <!--    <option value="サンプル1">６～10℃</option>-->
+        <!--    <option value="サンプル2">10～15℃</option>-->
+        <!--    <option value="サンプル3">15～20℃</option>-->
+        <!--    <option value="サンプル3">20～25℃</option>-->
+        <!--    <option value="サンプル3">25℃～</option>-->
+        <!--</select>-->
+        <!--<br><br>-->
+          
+        <!--<textarea name="comment" rows="4" cols="40"> コメントを入力してください </textarea>-->
+    
+        <!--<input type="submit" name="botan" value="send">-->
+        </form></center>
+    </body>
+  
+</html>

@@ -1,0 +1,46 @@
+body {
+  background-image: url("../images/background.jpg");
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+.wrap1{
+  margin: 0 auto 0 auto;
+  width: 80%;
+}
+
+
+.weather{
+  top:20px;
+  position:absolute;
+  left:450px;}
+
+.weather1{
+  top:100px;
+  position:absolute;
+  left:900px;
+  width:280px;
+}
+
+
+.weaklyweather{
+  top:210px;
+  position:absolute;
+  left:750px;
+  width: 150px;}
+
+.picture{
+  clear: both;
+  top:800px;
+  /*position:absolute;*/
+  /*left:250px;*/
+  width:80%;
+}
+
+.today{
+  float: right;
+  width: 250px;
+}
+
+
+
